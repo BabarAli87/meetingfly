@@ -1,0 +1,69 @@
+appId: com.meetingfly.app
+productName: MeetingFly
+copyright: Copyright © 2024
+directories:
+  buildResources: resources
+  output: dist
+files:
+  - out/**/*
+  - resources/**/*
+
+# Windows Configuration
+win:
+  target:
+    - target: nsis
+      arch: [x64]
+  icon: resources/icon.ico
+  # Windows code signing (optional, set via environment variables)
+  # Requires CSC_LINK (path/base64 of .pfx) and CSC_KEY_PASSWORD
+  # Without signing, SmartScreen may show warnings initially
+  certificateFile: null
+  certificatePassword: null
+  signDllsAndExes: true
+  verifyUpdateCodeSignature: false
+
+# macOS Configuration
+mac:
+  target:
+    - target: dmg
+      arch: [x64, arm64]
+  icon: resources/icon.icns
+  category: public.app-category.productivity
+  hardenedRuntime: true
+  gatekeeperAssess: false
+  entitlements: resources/entitlements.mac.plist
+  entitlementsInherit: resources/entitlements.mac.plist
+  # macOS code signing (required for distribution)
+  # Set via environment variables:
+  # - CSC_LINK: path or base64 of .p12 certificate
+  # - CSC_KEY_PASSWORD: certificate password
+  # - APPLE_ID: your Apple ID email
+  # - APPLE_APP_SPECIFIC_PASSWORD: app-specific password
+  # - APPLE_TEAM_ID: your team ID (10-character string)
+
+# DMG Configuration
+dmg:
+  sign: false
+  contents:
+    - x: 130
+      y: 220
+    - x: 410
+      y: 220
+      type: link
+      path: /Applications
+
+# NSIS Installer Configuration
+nsis:
+  oneClick: false
+  allowToChangeInstallationDirectory: true
+  createDesktopShortcut: always
+  createStartMenuShortcut: true
+  perMachine: false
+  differentialPackage: true
+
+# Auto-update Configuration
+publish:
+  provider: github
+  owner: your-github-username
+  repo: meetingfly
+  releaseType: release
