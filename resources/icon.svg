@@ -1,0 +1,24 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256">
+  <!-- Background -->
+  <rect width="256" height="256" fill="#5B9BD5" rx="32"/>
+  
+  <!-- Airplane body -->
+  <g transform="translate(128, 128)">
+    <!-- Fuselage -->
+    <rect x="-20" y="-6" width="50" height="12" rx="6" fill="white" opacity="0.95"/>
+    
+    <!-- Cockpit -->
+    <circle cx="18" cy="0" r="8" fill="white" opacity="0.9"/>
+    
+    <!-- Wings -->
+    <polygon points="0,0 -40,-8 -8,-2" fill="white" opacity="0.85"/>
+    <polygon points="0,0 -40,8 -8,2" fill="white" opacity="0.85"/>
+    
+    <!-- Tail fins -->
+    <polygon points="-20,0 -38,-10 -34,-4" fill="white" opacity="0.8"/>
+    <polygon points="-20,0 -38,10 -34,4" fill="white" opacity="0.8"/>
+    
+    <!-- Window -->
+    <circle cx="8" cy="-3" r="2" fill="#5B9BD5"/>
+  </g>
+</svg>

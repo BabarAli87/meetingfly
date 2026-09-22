@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+  <dict>
+    <!-- Allow JIT compilation for V8 -->
+    <key>com.apple.security.cs.allow-jit</key>
+    <true/>
+    
+    <!-- Allow unsigned executable memory (required for Electron) -->
+    <key>com.apple.security.cs.allow-unsigned-executable-memory</key>
+    <true/>
+    
+    <!-- Disable library validation (required for third-party native modules) -->
+    <key>com.apple.security.cs.disable-library-validation</key>
+    <true/>
+    
+    <!-- Network access (for OAuth, calendar sync, auto-update) -->
+    <key>com.apple.security.network.client</key>
+    <true/>
+    
+    <!-- Outgoing network connections -->
+    <key>com.apple.security.network.server</key>
+    <true/>
+    
+    <!-- Audio input/output (for meeting notification sounds) -->
+    <key>com.apple.security.device.audio-input</key>
+    <false/>
+    
+    <!-- Keychain access (for secure token storage) -->
+    <key>keychain-access-groups</key>
+    <array>
+      <string>$(AppIdentifierPrefix)com.meetingfly.app</string>
+    </array>
+  </dict>
+</plist>
